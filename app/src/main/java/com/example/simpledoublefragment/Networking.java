@@ -38,7 +38,6 @@ public class Networking extends AsyncTask<String, Void, String> {
         try {
             Response response = client.newCall(request).execute();
             String JSONstring = response.body().string();
-//            Log.d(TAG, "doMagic: " +  JSONstring);
             return JSONstring;
         } catch (IOException e) {
             e.printStackTrace();
