@@ -1,6 +1,7 @@
 package com.example.simpledoublefragment;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import java.util.List;
  */
 public class NamesAdapter extends ArrayAdapter<Student> {
 
+    private static final String TAG = "NamesAdapterTAG_";
+
     public NamesAdapter(Context context, List<Student> list) {
         super(context, R.layout.list_item, list);
     }
@@ -23,6 +26,9 @@ public class NamesAdapter extends ArrayAdapter<Student> {
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+
+/*            Log.d(TAG, "getView: " + getContext().getClass().getSimpleName()
+                                +" "+ convertView.getClass().getSimpleName());*/
         }
 
         Student aStudent = getItem(position);

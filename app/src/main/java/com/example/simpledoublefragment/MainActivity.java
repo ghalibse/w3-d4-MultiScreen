@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements LeftFragment.Call
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         int orientation = this.getResources().getConfiguration().orientation;
         Log.d(TAG, "onCreate: " + orientation);
 

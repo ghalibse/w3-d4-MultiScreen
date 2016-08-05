@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import java.util.List;
  */
 public class LeftFragment extends Fragment {
 
+    private static final String TAG = "LeftFragmentTAG_";
     private CallbackComponent mCallbackComponent;
 
     private ListView mListView;
@@ -65,6 +67,9 @@ public class LeftFragment extends Fragment {
         mListView = (ListView) view.findViewById(R.id.rf_list_view);
 
         new Networking(this).execute();
+
+        Log.d(TAG, "getView: " + getContext().getClass().getSimpleName()
+                +" "+ view.getClass().getSimpleName());
     }
 
     public void loadJSON(String dataJSON) {

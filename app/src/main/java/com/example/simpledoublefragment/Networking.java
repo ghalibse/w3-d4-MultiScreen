@@ -34,7 +34,6 @@ public class Networking extends AsyncTask<String, Void, String> {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-
         try {
             Response response = client.newCall(request).execute();
             String JSONstring = response.body().string();
@@ -42,7 +41,6 @@ public class Networking extends AsyncTask<String, Void, String> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

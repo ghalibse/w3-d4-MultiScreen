@@ -12,6 +12,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return  name + "  \t" + age + " \t"+ grade;
+
+        return String.format("%1$-10s %2$-10d", name, age) + String.format("%1$,.2f",grade);
     }
 }
