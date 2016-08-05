@@ -17,6 +17,8 @@ import com.squareup.picasso.Picasso;
  */
 public class RightFragment extends Fragment {
 
+    private String[] url = new String[]{"https://goo.gl/iXJNuf", "http://goo.gl/dPs4IF", "http://goo.gl/N6CfR0","https://goo.gl/NqJtxe", "http://goo.gl/aGM2Qq"};
+
     private ImageView mImageView;
 
     public RightFragment() {
@@ -37,11 +39,8 @@ public class RightFragment extends Fragment {
         mImageView = (ImageView) view.findViewById(R.id.f_right_img);
     }
 
-    public void loadImage(String name) {
-        String url = name.contains("Edwin")
-                ? "http://ichef-1.bbci.co.uk/news/660/cpsprodpb/025B/production/_85730600_monkey2.jpg"
-                : "http://kids.nationalgeographic.com/content/dam/kids/photos/animals/Mammals/H-P/pig-full-body.jpg.adapt.945.1.jpg";
+    public void loadImage(int name) {
 
-        Picasso.with(getContext()).load(url).into(mImageView);
+        Picasso.with(getContext()).load(url[name]).into(mImageView);
     }
 }

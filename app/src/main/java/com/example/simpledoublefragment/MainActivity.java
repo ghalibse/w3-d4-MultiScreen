@@ -28,12 +28,11 @@ public class MainActivity extends AppCompatActivity implements LeftFragment.Call
                 .add(R.id.a_main_left, mLeftFragment, LEFT_FRAGMENT_TAG)
                 .add(R.id.a_main_right, mRightFragment, RIGHT_FRAGMENT_TAG)
                 .commit();
-
     }
 
     @Override
-    public void buttonClicked(String name) {
-        Log.d(TAG, "buttonClicked: " + name);
+    public void itemClicked(int name) {
+
         if (mRightFragment != null && mRightFragment.isAdded()) {
             mRightFragment.loadImage(name);
         }
