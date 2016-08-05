@@ -1,6 +1,7 @@
 package com.example.simpledoublefragment;
 
 import android.net.Uri;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,17 +28,23 @@ public class MainActivity extends AppCompatActivity implements LeftFragment.Call
 
 
         int orientation = this.getResources().getConfiguration().orientation;
-
-            mLeftFragment = new LeftFragment();
-            mRightFragment = new RightFragment();
-
         Log.d(TAG, "onCreate: " + orientation);
 
-        getSupportFragmentManager()
-                .beginTransaction()
+        mLeftFragment = new LeftFragment();
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        fragmentManager.beginTransaction()
                 .add(R.id.a_main_left, mLeftFragment, LEFT_FRAGMENT_TAG)
-                .add(R.id.a_main_right, mRightFragment, RIGHT_FRAGMENT_TAG)
                 .commit();
+
+        if (orientation == 2) {
+            mRightFragment = new RightFragment();
+            fragmentManager
+                    .beginTransaction()
+                    .add(R.id.a_main_right, mRightFragment, RIGHT_FRAGMENT_TAG)
+                    .commit();
+        }
     }
 
     @Override
