@@ -37,7 +37,6 @@ public class LeftFragment extends Fragment {
     private ArrayList<Student> students;
 
 
-    private String dataJSON = "[{\"name\":\"Juan\",\"age\":20,\"grade\":8.1},{\"name\":\"Miguel\",\"age\":23,\"grade\":8.3},{\"name\":\"Roberto\",\"age\":39,\"grade\":9.3},{\"name\":\"Luis\",\"age\":19,\"grade\":6.9},{\"name\":\"Gaudencio\",\"age\":25,\"grade\":4.3}]";
 
     interface CallbackComponent {
         void itemClicked(int name);
@@ -66,6 +65,11 @@ public class LeftFragment extends Fragment {
 
         mListView = (ListView) view.findViewById(R.id.rf_list_view);
 
+        new Networking(this).execute();
+    }
+
+    public void loadJSON(String dataJSON) {
+
         Type listType = new TypeToken<List<Student>>() {
         }.getType();
         Gson gson = new GsonBuilder().create();
@@ -85,6 +89,6 @@ public class LeftFragment extends Fragment {
                 mCallbackComponent.itemClicked(i);
             }
         });
-
     }
+
 }
